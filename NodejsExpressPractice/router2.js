@@ -9,7 +9,7 @@ const router  = express.Router();
 router.all("/", (request, response) => {
     response.writeHead(200);
     response.write('hello world');
-    res.end();
+    response.end();
 });
 
 module.exports = router;
