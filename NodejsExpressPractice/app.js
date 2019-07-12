@@ -17,7 +17,7 @@ app.listen(3000)
 
 
 /*
-    アプリケーションミドルウェア
+ *  アプリケーションミドルウェア
  */
 var counter_app = 0  //カウンター
 app.use('/', function (req, res, next) {
@@ -49,3 +49,20 @@ app.all   ('/foo',         (req, res)=>{ });
 var router1 = require('./router1');  app.use('/router1', router1);
 //こちらでも可
 app.use('/router2', require('./router2'));
+
+
+/*
+ *  入力
+ */
+//パラメーター（:x）
+router.get('/params/:x',    function (req, res) {
+    res.send('params : ' + req.params.x)
+});
+//パラメーター（複数）
+router.get('/params/:x/:y', function (req, res) {
+    res.send('params : ' + req.params.x + '/' + req.params.y)
+});
+//クエリー（?z=foge）
+router.get('/query',        function (req, res) {
+    res.send('query : '  + req.query.z)
+});
