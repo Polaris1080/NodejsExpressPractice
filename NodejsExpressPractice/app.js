@@ -66,3 +66,26 @@ app.get('/params/:x/:y', function (req, res) {
 app.get('/query',        function (req, res) {
     res.send('query : '  + req.query.z)
 });
+
+
+
+/*
+ *  出力
+ */
+//基本形
+app.get('/responce/send',     function (req, res) {
+    res.send('Hello world')
+});
+//ステータス
+app.get('/responce/status',   function (req, res) {
+    res.status(418).end()
+});
+//リダイレクト
+app.get('/responce/redirect', function (req, res) {
+    console.log('redirect to /responce/red')
+    res.redirect('/responce/red')
+});
+//リダイレクト先
+app.get('/responce/red',      function (req, res) {
+    res.send('redirect')
+});
