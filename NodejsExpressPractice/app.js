@@ -30,3 +30,10 @@ app.delete('/foo/bar/:id', (req, res)=>{ });
 // ALL    http://localhost:3000/foo/
 app.all   ('/foo',         (req, res)=>{ });
 
+/*
+ *  router‚ÌŽg‚¢•û
+ */
+//Šî–{‚Í‚±‚Á‚¿
+var router1 = require('./router1');  app.use('/router1', router1);
+//‚±‚¿‚ç‚Å‚à‰Â
+app.use('/router2', require('./router2'));
