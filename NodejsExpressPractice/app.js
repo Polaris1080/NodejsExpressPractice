@@ -17,6 +17,17 @@ app.listen(3000)
 
 
 /*
+    アプリケーションミドルウェア
+ */
+var counter_app = 0  //カウンター
+app.use('/', function (req, res, next) {
+    counter_app++
+    console.log('This is middleware-App : ' + counter_app + ' called')
+    next()  //nextを忘れると、次に進まない
+});
+
+
+/*
  *  基本形
  */
 // GET    http://localhost:3000/foo/
@@ -29,6 +40,7 @@ app.put   ('/foo/bar/:id', (req, res)=>{ });
 app.delete('/foo/bar/:id', (req, res)=>{ });
 // ALL    http://localhost:3000/foo/
 app.all   ('/foo',         (req, res)=>{ });
+
 
 /*
  *  routerの使い方
