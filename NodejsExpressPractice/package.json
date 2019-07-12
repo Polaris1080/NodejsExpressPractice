@@ -1,0 +1,9 @@
+{
+  "name": "nodejs-express-practice",
+  "version": "0.0.0",
+  "description": "NodejsExpressPractice",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  }
+}
