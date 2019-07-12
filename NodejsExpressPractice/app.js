@@ -89,3 +89,25 @@ app.get('/responce/redirect', function (req, res) {
 app.get('/responce/red',      function (req, res) {
     res.send('redirect')
 });
+
+
+/*
+ *  next()
+ */
+//next()で次のルーティングに渡す
+var temp_verb = "";
+router.get   ('/verb', function (req, res, next) {
+    temp_verb = "get";    next()
+});
+router.post  ('/verb', function (req, res, next) {
+    temp_verb = "post";   next()
+});
+router.put   ('/verb', function (req, res, next) {
+    temp_verb = "put";    next()
+});
+router.delete('/verb', function (req, res, next) {
+    temp_verb = "delete"; next()
+});
+router.all   ('/verb', function (req, res) {
+    res.send(temp_verb);
+});
